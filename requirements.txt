@@ -1,2 +1,4 @@
-fastapi
-uvicorn
+fastapi~=0.98.0
+uvicorn~=0.22.0
+fastapi-chameleon
+SQLAlchemy~=2.0.17

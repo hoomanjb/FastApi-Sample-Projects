@@ -1,14 +1,16 @@
 import fastapi
 import uvicorn
+from fastapi_chameleon import template, global_init
 
 app = fastapi.FastAPI()
 
+global_init('static')
 
 @app.get("/")
+@template(template_file='index.html')
 def index():
-    content = "<h1>Hello World!</h1>"
-    return fastapi.responses.HTMLResponse(content)
+    return {'username': 'John'}
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="localhost", port=8000)
